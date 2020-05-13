@@ -36,14 +36,11 @@ ggplot(merged, aes(x=long,y =lat, group = group, fill= Emit_co2percap))+geom_pol
 
 data(Bali)
 op <- par(mar = c(0,0,0,0))
-plot(Bali,displaylabels=TRUE,label.cex=0.8,
-     pad=0.4,label.col="darkblue")
+plot(Bali,displaylabels=TRUE,label.cex=0.8,pad=0.4,label.col="darkblue")
 
 
 # question 2 part c
 rolelab <- get.vertex.attribute(Bali,"role")
 
-plot(Bali,usearrows=FALSE,label=rolelab,
-     
-     displaylabels=T,label.col="darkblue")
+plot(Bali,usearrows=FALSE,label=rolelab,displaylabels=T,label.col="darkblue")
 
