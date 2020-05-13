@@ -24,15 +24,12 @@ wdi_data   <-WDI(indicator=c("NY.GDP.PCAP.PP.KD",   "EN.ATM.CO2E.PC"),   start  
 wdi_data   =   as_tibble(wdi_data) 
 wdi   <-   wdi_data   %>%   rename(GDPpercap   =   NY.GDP.PCAP.PP.KD, Emit_co2percap=EN.ATM.CO2E.PC)
 dat_map<-map_data("world")
-
 dat_map$ccode <- countrycode(dat_map$region,origin = "country.name",destination = "wb")
-
 wdi$ccode<- countrycode(wdi$country, origin = "country.name", destination = "wb")
 merged <-full_join(dat_map, wdi, by="ccode")
 ggplot(merged, aes(x=long,y =lat, group = group, fill= Emit_co2percap))+geom_polygon()
 
 # question 2 part b 
-
 
 data(Bali)
 op <- par(mar = c(0,0,0,0))
@@ -40,7 +37,7 @@ plot(Bali,displaylabels=TRUE,label.cex=0.8,pad=0.4,label.col="darkblue")
 
 
 # question 2 part c
-rolelab <- get.vertex.attribute(Bali,"role")
 
+rolelab <- get.vertex.attribute(Bali,"role")
 plot(Bali,usearrows=FALSE,label=rolelab,displaylabels=T,label.col="darkblue")
 
